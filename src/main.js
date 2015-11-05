@@ -1,3 +1,4 @@
+import 'babel-core/polyfill'
 import 'styles/styles.scss';
 
 import angular from 'angular';

@@ -5,6 +5,7 @@ module.exports = function(config) {
     ],
 
     files: [
+      'node_modules/babel-core/browser-polyfill.min.js',
       'webpack.test.js'
     ],
 
@@ -38,7 +39,7 @@ module.exports = function(config) {
       }
     },
 
-    browsers: process.env.TRAVIS ? ['TRAVIS_CHROME'] : ['Chrome']
+    browsers: process.env.TRAVIS ? ['TRAVIS_CHROME'] : ['Safari']
   };
 
 

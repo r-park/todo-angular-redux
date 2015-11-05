@@ -3,15 +3,16 @@
 
 # Todo app with Angular 1.5 and Redux
 
-- Angular `1.5.0-beta.0`
-- Angular UI-Router `~0.2.15`
-- NG-Redux `~3.0.2`
-- Redux `~3.0.4`
-- Babel `~5.8.33`
-- Gulp `4.0.0-alpha.1`
-- SASS
-- Webpack
-- Karma
+- [Angular](https://github.com/angular/angular.js) `1.5.0-beta.0`
+- [Angular UI-Router](https://github.com/angular-ui/ui-router) `~0.2.15`
+- [NG-Redux](https://github.com/wbuchwalter/ng-redux) `~3.0.2`
+- [Redux](https://github.com/rackt/redux) `~3.0.4`
+- [Babel](https://github.com/babel/babel) `~5.8.33`
+- [Gulp](https://github.com/gulpjs/gulp) `4.0.0-alpha.1`
+- [Karma](https://github.com/karma-runner/karma)
+- [Node-SASS](https://github.com/sass/node-sass)
+- [JSON-Server](https://github.com/typicode/json-server)
+- [Webpack](https://github.com/webpack/webpack)
 
 ## Installing dependencies
 ```bash

@@ -1,0 +1,12 @@
+<form class="task-form" name="newTaskForm" ng-submit="taskForm.submit()" novalidate>
+  <input
+    autocomplete="off"
+    autofocus
+    class="task-form__input"
+    maxlength="64"
+    name="taskTitle"
+    ng-model="taskForm.title"
+    placeholder="What needs to be done?"
+    required
+    type="text">
+</form>

@@ -35,7 +35,7 @@ var config = {
   },
 
   header: {
-    src: paths.target + '/{main.js, styles.css}',
+    src: paths.target + '/{main.js,styles.css}',
     template: '/* <%= name %> v<%= version %> - <%= date %> - <%= url %> */\n'
   },
 

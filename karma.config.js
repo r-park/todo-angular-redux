@@ -39,7 +39,7 @@ module.exports = function(config) {
       }
     },
 
-    browsers: process.env.TRAVIS ? ['TRAVIS_CHROME'] : ['Safari']
+    browsers: process.env.TRAVIS ? ['TRAVIS_CHROME'] : ['Chrome']
   };
 
 

@@ -1,3 +1,4 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 var webpack = require('webpack');
 
@@ -5,7 +6,7 @@ var webpack = require('webpack');
 module.exports = {
   cache: true,
   debug: true,
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
 
   entry: {
     main: [
@@ -44,6 +45,12 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      inject: 'body',
+      hash: true,
+      template: 'src/index.html'
     }),
     new webpack.NoErrorsPlugin()
   ],

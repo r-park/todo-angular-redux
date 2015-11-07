@@ -31,6 +31,7 @@
     "gulp-header": "~1.7.1",
     "gulp-inject": "~3.0.0",
     "gulp-util": "~3.0.7",
+    "html-webpack-plugin": "~1.6.2",
     "jasmine-core": "~2.3.4",
     "json-server": "~0.8.2",
     "karma": "~0.13.15",
@@ -42,6 +43,7 @@
     "node-sass": "~3.4.1",
     "raw-loader": "~0.5.1",
     "sass-loader": "~3.1.1",
+    "sinon": "~1.17.2",
     "style-loader": "~0.13.0",
     "webpack": "~1.12.2",
     "webpack-dev-server": "~1.12.1"

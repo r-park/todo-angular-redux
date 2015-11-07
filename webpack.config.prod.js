@@ -1,4 +1,5 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 var webpack = require('webpack');
 
@@ -62,6 +63,12 @@ module.exports = {
         unused: true,
         warnings: false
       }
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      inject: 'body',
+      hash: true,
+      template: 'src/index.html'
     })
   ],
 

@@ -6,6 +6,7 @@ module.exports = function(config) {
 
     files: [
       'node_modules/babel-core/browser-polyfill.min.js',
+      'node_modules/sinon/pkg/sinon.js',
       'webpack.test.js'
     ],
 

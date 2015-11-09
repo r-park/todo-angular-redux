@@ -10,7 +10,6 @@ import { App, AppDirective } from 'components/app/app';
 import { Tasks, TasksDirective } from 'components/tasks/tasks';
 import { TaskForm, TaskFormDirective } from 'components/tasks/task-form/task-form';
 import { TaskItem, TaskItemDirective } from 'components/tasks/task-item/task-item';
-import { taskListFilter } from './components/tasks/task-list-filter';
 
 import { escapeDirective } from './directives/escape-directive';
 import { focusDirective } from './directives/focus-directive';
@@ -39,8 +38,6 @@ let app = angular.module('app', [
 
   .controller('TaskItem', TaskItem)
   .directive('taskItem', TaskItemDirective)
-
-  .filter('filterTasks', taskListFilter)
 
   .directive('escape', escapeDirective)
   .directive('focus', focusDirective)

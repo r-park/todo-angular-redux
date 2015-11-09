@@ -1,6 +1,6 @@
 {
   "name": "todo-angular-redux",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Todo app with Angular 1.5 and Redux",
   "homepage": "https://github.com/r-park/todo-angular-redux",
   "repository": "https://github.com/r-park/todo-angular-redux.git",
@@ -14,7 +14,7 @@
   "dependencies": {
     "angular": "1.5.0-beta.0",
     "angular-ui-router": "~0.2.15",
-    "ng-redux": "~3.0.2",
+    "ng-redux": "~3.1.0",
     "redux": "~3.0.4"
   },
   "devDependencies": {
@@ -45,7 +45,7 @@
     "sass-loader": "~3.1.1",
     "sinon": "~1.17.2",
     "style-loader": "~0.13.0",
-    "webpack": "~1.12.2",
+    "webpack": "~1.12.3",
     "webpack-dev-server": "~1.12.1"
   }
 }

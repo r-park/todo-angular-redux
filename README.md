@@ -5,7 +5,7 @@
 
 - [Angular](https://github.com/angular/angular.js) `1.5.0-beta.0`
 - [Angular UI-Router](https://github.com/angular-ui/ui-router) `~0.2.15`
-- [NG-Redux](https://github.com/wbuchwalter/ng-redux) `~3.0.2`
+- [NG-Redux](https://github.com/wbuchwalter/ng-redux) `~3.1.0`
 - [Redux](https://github.com/rackt/redux) `~3.0.4`
 - [Babel](https://github.com/babel/babel) `~5.8.33`
 - [Gulp](https://github.com/gulpjs/gulp) `4.0.0-alpha.1`

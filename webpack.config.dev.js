@@ -6,7 +6,7 @@ var webpack = require('webpack');
 module.exports = {
   cache: true,
   debug: true,
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
 
   entry: {
     main: [
@@ -48,8 +48,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      inject: 'body',
       hash: true,
+      inject: 'body',
       template: 'src/index.html'
     }),
     new webpack.NoErrorsPlugin()

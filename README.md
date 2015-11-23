@@ -3,16 +3,17 @@
 
 # Todo app with Angular 1.5 and Redux
 
-- [Angular](https://github.com/angular/angular.js) `1.5.0-beta.0`
+- [Angular](https://github.com/angular/angular.js) `1.5.0-beta.2`
 - [Angular UI-Router](https://github.com/angular-ui/ui-router) `~0.2.15`
-- [NG-Redux](https://github.com/wbuchwalter/ng-redux) `~3.1.0`
+- [NG-Redux](https://github.com/wbuchwalter/ng-redux) `~3.1.1`
 - [Redux](https://github.com/rackt/redux) `~3.0.4`
-- [Babel](https://github.com/babel/babel) `~5.8.33`
+- [Babel](https://github.com/babel/babel) `~6.2.1`
 - [Gulp](https://github.com/gulpjs/gulp) `4.0.0-alpha.1`
 - [Karma](https://github.com/karma-runner/karma)
 - [Node-SASS](https://github.com/sass/node-sass)
 - [JSON-Server](https://github.com/typicode/json-server)
 - [Webpack](https://github.com/webpack/webpack)
+
 
 ## Installing dependencies
 ```bash
@@ -28,13 +29,6 @@ The gulp tasks for this project require gulp v4-alpha. If you don't wish to glob
 ./node_modules/.bin/gulp run
 ```
 
-## Running the app
-```bash
-gulp run
-```
-Executing `gulp run` will:
-- Build the project
-- Start the server at <a href="http://localhost:7000" target="_blank">localhost:7000</a>
 
 ## Developing
 ```bash
@@ -45,6 +39,7 @@ Executing the default `gulp` command will:
 - Start the server at <a href="http://localhost:7000" target="_blank">localhost:7000</a>
 - Watch for changes to the source files and process changes
 - Live-reload the browser
+
 
 ## Testing
 ```bash

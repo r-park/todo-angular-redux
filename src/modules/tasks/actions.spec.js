@@ -1,6 +1,7 @@
 import 'angular';
 import { createMockStore } from 'utils/create-mock-store';
-import { API_BASE_URL, apiMiddleware } from 'modules/api';
+import { API_BASE_URL } from 'modules/api/constants';
+import { apiMiddleware } from 'modules/api/middleware';
 import * as types from './constants';
 
 import {

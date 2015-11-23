@@ -1,7 +1,7 @@
 import {
   API_BASE_URL,
   API_REQUEST
-} from 'modules/api';
+} from 'modules/api/constants';
 
 import {
   CREATE_TASK_TYPES,

@@ -5,13 +5,13 @@ module.exports = function(config) {
     ],
 
     files: [
-      'node_modules/babel-core/browser-polyfill.min.js',
+      'node_modules/babel-polyfill/dist/polyfill.js',
       'node_modules/sinon/pkg/sinon.js',
-      'webpack.test.js'
+      'karma.entry.js'
     ],
 
     preprocessors: {
-      'webpack.test.js': ['webpack', 'sourcemap']
+      'karma.entry.js': ['webpack', 'sourcemap']
     },
 
     // webpack config
@@ -24,7 +24,6 @@ module.exports = function(config) {
 
     reporters: ['dots'],
 
-    // config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
     autoWatch: true,

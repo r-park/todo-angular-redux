@@ -97,7 +97,7 @@ gulp.task('js', function(done){
   var conf = require(config.webpack.prod);
   webpack(conf).run(function(error, stats){
     if (error) throw new gutil.PluginError('webpack', error);
-    gutil.log(stats.toString(config.webpack.stats));
+    gutil.log(stats.toString(conf.stats));
     done();
   });
 });
@@ -122,9 +122,9 @@ gulp.task('serve', function(done){
   });
 
   server.listen(7000, 'localhost', function(){
-    gutil.log(gutil.colors.green('-------------------------------------------'));
-    gutil.log(gutil.colors.green('WebpackDevServer listening @ localhost:7000'));
-    gutil.log(gutil.colors.green('-------------------------------------------'));
+    gutil.log(gutil.colors.gray('-------------------------------------------'));
+    gutil.log(gutil.colors.magenta('WebpackDevServer listening @ localhost:7000'));
+    gutil.log(gutil.colors.gray('-------------------------------------------'));
     done();
   });
 });
@@ -136,9 +136,9 @@ gulp.task('serve.api', function(done){
   server.use(jsonServer.router('db.json'));
 
   server.listen(3000, 'localhost', function(){
-    gutil.log(gutil.colors.green('-------------------------------------------'));
-    gutil.log(gutil.colors.green('JSON API Server  listening @ localhost:3000'));
-    gutil.log(gutil.colors.green('-------------------------------------------'));
+    gutil.log(gutil.colors.gray('-------------------------------------------'));
+    gutil.log(gutil.colors.magenta('JSON API Server listening @ localhost:3000'));
+    gutil.log(gutil.colors.gray('-------------------------------------------'));
     done();
   });
 });

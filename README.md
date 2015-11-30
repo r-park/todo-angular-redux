@@ -8,7 +8,7 @@
 - [NG-Redux](https://github.com/wbuchwalter/ng-redux) `~3.1.1`
 - [Redux](https://github.com/rackt/redux) `~3.0.4`
 - [Babel](https://github.com/babel/babel) `~6.2.1`
-- [Gulp](https://github.com/gulpjs/gulp) `4.0.0-alpha.1`
+- [Gulp](https://github.com/gulpjs/gulp) `4.0.0-alpha.2`
 - [Karma](https://github.com/karma-runner/karma)
 - [Node-SASS](https://github.com/sass/node-sass)
 - [JSON-Server](https://github.com/typicode/json-server)

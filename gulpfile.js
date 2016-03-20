@@ -17,10 +17,7 @@ const WebpackServer = require('webpack-dev-server');
 //---------------------------------------------------------
 const paths = {
   src: {
-    root: 'src',
-    html: 'src/index.html',
-    js: 'src/**/*.js',
-    sass: 'src/styles/**/*.scss'
+    js: 'src/**/*.js'
   },
 
   target: 'target'
@@ -45,8 +42,8 @@ const config = {
   },
 
   webpack: {
-    dev: './webpack.config.dev',
-    prod: './webpack.config.prod'
+    dev: './webpack.dev',
+    dist: './webpack.dist'
   }
 };
 
@@ -55,12 +52,6 @@ const config = {
 //  TASKS
 //---------------------------------------------------------
 gulp.task('clean.target', () => del(paths.target));
-
-
-gulp.task('copy.html', () => {
-  return gulp.src(paths.src.html)
-    .pipe(gulp.dest(paths.target));
-});
 
 
 gulp.task('headers', () => {
@@ -94,16 +85,11 @@ gulp.task('lint', () => {
 gulp.task('serve.dev', done => {
   let conf = require(config.webpack.dev);
   let compiler = webpack(conf);
+  let server = new WebpackServer(compiler, conf.devServer);
 
-  let server = new WebpackServer(compiler, {
-    contentBase: paths.src.root,
-    publicPath: conf.output.publicPath,
-    stats: conf.stats
-  });
-
-  server.listen(7000, 'localhost', () => {
+  server.listen(conf.devServer.port, 'localhost', () => {
     gutil.log(gutil.colors.gray('-------------------------------------------'));
-    gutil.log(gutil.colors.magenta('WebpackDevServer listening @ localhost:7000'));
+    gutil.log('WebpackDevServer:', gutil.colors.magenta(`http://localhost:${conf.devServer.port}`));
     gutil.log(gutil.colors.gray('-------------------------------------------'));
     done();
   });
@@ -115,22 +101,13 @@ gulp.task('serve.api', done => {
   server.use(jsonServer.defaults());
   server.use(jsonServer.router('db.json'));
 
-  server.listen(3000, 'localhost', () => {
+  server.listen(3001, 'localhost', () => {
     gutil.log(gutil.colors.gray('-------------------------------------------'));
-    gutil.log(gutil.colors.magenta('JSON API Server listening @ localhost:3000'));
+    gutil.log('JSON API Server:', gutil.colors.magenta('http://localhost:3001'));
     gutil.log(gutil.colors.gray('-------------------------------------------'));
     done();
   });
 });
-
-
-//===========================
-//  BUILD
-//---------------------------
-gulp.task('build', gulp.series(
-  'clean.target',
-  'copy.html'
-));
 
 
 //===========================
@@ -168,7 +145,7 @@ gulp.task('test.watch', done => {
 gulp.task('dist', gulp.series(
   'lint',
   'test',
-  'build',
+  'clean.target',
   'js',
   'headers'
 ));

@@ -1,9 +1,13 @@
-const path = require('path');
 const webpack = require('webpack');
+const config = require('./webpack.base');
+
+// plugins
+const DefinePlugin = webpack.DefinePlugin;
 
 
 module.exports = {
   devtool: 'inline-source-map',
+  resolve: config.resolve,
 
   module: {
     loaders: [
@@ -13,12 +17,8 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.DefinePlugin({
+    new DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('test')
     })
-  ],
-
-  resolve: {
-    root: path.resolve('./src')
-  }
+  ]
 };

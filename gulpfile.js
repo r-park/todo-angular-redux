@@ -3,7 +3,6 @@ var del           = require('del'),
     gulp          = require('gulp'),
     gutil         = require('gulp-util'),
     header        = require('gulp-header'),
-    inject        = require('gulp-inject'),
     jsonServer    = require('json-server'),
     karma         = require('karma'),
     path          = require('path'),
@@ -39,15 +38,6 @@ var config = {
     template: '/* <%= name %> v<%= version %> - <%= date %> - <%= url %> */\n'
   },
 
-  inject: {
-    src: 'target/index.html',
-    includes: [
-      'target/styles.css',
-      'target/vendor.js'
-    ],
-    options: {relative: true}
-  },
-
   karma: {
     configFile: path.resolve('./karma.config.js')
   },
@@ -79,16 +69,6 @@ gulp.task('headers', function(){
 
   return gulp.src(config.header.src)
     .pipe(header(config.header.template, headerContent))
-    .pipe(gulp.dest(paths.target));
-});
-
-
-gulp.task('inject', function(){
-  return gulp.src(config.inject.src)
-    .pipe(inject(
-      gulp.src(config.inject.includes, {read: false}),
-      config.inject.options
-    ))
     .pipe(gulp.dest(paths.target));
 });
 
@@ -190,6 +170,5 @@ gulp.task('dist', gulp.series(
   'test',
   'build',
   'js',
-  'inject',
   'headers'
 ));

@@ -1,15 +1,15 @@
+/* eslint-disable no-undefined */
 import 'angular';
-import { createMockStore } from 'utils/create-mock-store';
-import { API_BASE_URL } from 'modules/api/constants';
-import { apiMiddleware } from 'modules/api/middleware';
-import * as types from './constants';
+import { createMockStore } from 'src/utils';
+import { API_BASE_URL, apiMiddleware } from 'src/core/api';
+import * as types from './action-types';
 
 import {
   createTask,
   deleteTask,
   fetchTasks,
   updateTask
-} from './actions';
+} from './action-creators';
 
 
 describe('Tasks actions', () => {

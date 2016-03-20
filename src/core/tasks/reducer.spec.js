@@ -1,3 +1,4 @@
+/* eslint-disable no-undefined */
 import 'angular';
 
 import {
@@ -5,7 +6,7 @@ import {
   DELETE_TASK_SUCCESS,
   FETCH_TASKS_SUCCESS,
   UPDATE_TASK_SUCCESS
-} from './constants';
+} from './action-types';
 
 import { INITIAL_STATE, taskReducer } from './reducer';
 

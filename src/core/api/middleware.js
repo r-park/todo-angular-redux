@@ -1,3 +1,4 @@
+/* eslint-disable callback-return */
 import { API_REQUEST } from './constants';
 
 

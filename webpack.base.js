@@ -23,7 +23,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js'],
     modulesDirectories: ['node_modules'],
-    root: path.resolve('./src')
+    root: path.resolve('.')
   },
 
   postcss: [

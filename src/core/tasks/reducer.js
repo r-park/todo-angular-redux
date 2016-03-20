@@ -1,11 +1,11 @@
-import { createReducer } from 'utils/create-reducer';
+import { createReducer } from 'src/utils';
 
 import {
   CREATE_TASK_SUCCESS,
   DELETE_TASK_SUCCESS,
   FETCH_TASKS_SUCCESS,
   UPDATE_TASK_SUCCESS
-} from './constants';
+} from './action-types';
 
 
 export const INITIAL_STATE = {

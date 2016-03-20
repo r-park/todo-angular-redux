@@ -1,14 +1,14 @@
 import {
   API_BASE_URL,
   API_REQUEST
-} from 'modules/api/constants';
+} from 'src/core/api';
 
 import {
   CREATE_TASK_TYPES,
   DELETE_TASK_TYPES,
   FETCH_TASKS_TYPES,
   UPDATE_TASK_TYPES
-} from './constants';
+} from './action-types';
 
 
 export function createTask(title) {

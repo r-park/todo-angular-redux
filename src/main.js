@@ -1,22 +1,22 @@
-import 'styles/styles.scss';
-
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngRedux from 'ng-redux';
 import { combineReducers } from 'redux';
 
-import { App, AppDirective } from 'components/app/app';
-import { Tasks, TasksDirective } from 'components/tasks/tasks';
-import { TaskForm, TaskFormDirective } from 'components/tasks/task-form/task-form';
-import { TaskItem, TaskItemDirective } from 'components/tasks/task-item/task-item';
+// Core
+import { apiMiddleware } from './core/api';
+import { taskActions, taskReducer } from './core/tasks';
 
-import { escapeDirective } from 'directives/escape-directive';
-import { focusDirective } from 'directives/focus-directive';
+// Router
+import { routerConfig } from './router';
 
-import { apiMiddleware } from 'modules/api/middleware';
-import * as taskActions from 'modules/tasks/actions';
-import { taskReducer } from 'modules/tasks/reducer';
-import { routerConfig } from 'router';
+// Views
+import { App, AppDirective } from './views/app';
+import { escapeDirective, focusDirective } from './views/common/directives';
+import { Tasks, TasksDirective, TaskForm, TaskFormDirective, TaskItem, TaskItemDirective } from './views/tasks';
+
+// Styles
+import './styles/styles.scss';
 
 
 let app = angular.module('app', [

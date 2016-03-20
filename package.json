@@ -14,8 +14,10 @@
     "node": ">=5.2"
   },
   "scripts": {
+    "create.db": "gulp create.db",
     "dev": "gulp",
     "dist": "gulp dist",
+    "postinstall": "npm run create.db",
     "start": "npm run dev",
     "test": "gulp test"
   },

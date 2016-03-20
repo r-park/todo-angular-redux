@@ -3,6 +3,7 @@
 
 const del           = require('del');
 const eslint        = require('gulp-eslint');
+const fs            = require('fs');
 const gulp          = require('gulp');
 const gutil         = require('gulp-util');
 const header        = require('gulp-header');
@@ -33,6 +34,10 @@ const config = {
     src: paths.src.js
   },
 
+  db: {
+    file: path.join(__dirname, 'db.json')
+  },
+
   header: {
     src: paths.target + '/{main.js,styles.css}',
     template: '/* <%= name %> v<%= version %> - <%= date %> - <%= url %> */\n'
@@ -53,6 +58,26 @@ const config = {
 //  TASKS
 //---------------------------------------------------------
 gulp.task('clean.target', () => del(paths.target));
+
+
+gulp.task('create.db', done => {
+  const content = {
+    tasks: [
+      {
+        completed: false,
+        title: 'Todo: Angular Redux',
+        id: 0
+      }
+    ]
+  };
+
+  fs.exists(config.db.file, exists => {
+    if (!exists) {
+      fs.writeFileSync(config.db.file, JSON.stringify(content), {encoding: 'utf-8'});
+    }
+    done();
+  });
+});
 
 
 gulp.task('headers', () => {

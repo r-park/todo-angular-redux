@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import 'styles/styles.scss';
 
 import angular from 'angular';
@@ -21,9 +20,9 @@ import { routerConfig } from 'router';
 
 
 let app = angular.module('app', [
-    ngRedux,
-    uiRouter
-  ])
+  ngRedux,
+  uiRouter
+])
 
   .factory('apiMiddleware', apiMiddleware)
   .value('taskActions', taskActions)

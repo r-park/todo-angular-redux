@@ -1,3 +1,4 @@
+/* eslint-disable no-undefined */
 import 'angular';
 import { createMockStore } from 'utils/create-mock-store';
 import { API_BASE_URL } from 'modules/api/constants';

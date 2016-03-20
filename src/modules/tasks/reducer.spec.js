@@ -1,3 +1,4 @@
+/* eslint-disable no-undefined */
 import 'angular';
 
 import {

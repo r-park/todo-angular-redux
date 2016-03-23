@@ -1,18 +1,36 @@
-import template from './tasks.html';
+import { Component } from 'src/utils';
 
 
-export function TasksDirective() {
-  return {
-    controller: 'Tasks',
-    controllerAs: 'tasks',
-    restrict: 'E',
-    scope: {},
-    template
-  };
-}
+@Component({
+  controllerAs: 'tasks',
+  template: `
+    <div class="g-row">
+      <div class="g-col">
+        <task-form create-task="tasks.actions.createTask(title)"></task-form>
+      </div>
 
+      <div class="g-col">
+        <ul class="task-filters">
+          <li><a ui-sref-active-eq="active" ui-sref="app.tasks({filter: ''})">View All</a></li>
+          <li><a ui-sref-active="active" ui-sref="app.tasks({filter: tasks.filterTypes.active})">Active</a></li>
+          <li><a ui-sref-active="active" ui-sref="app.tasks({filter: tasks.filterTypes.completed})">Completed</a></li>
+        </ul>
+      </div>
 
-export class Tasks {
+      <div class="g-col">
+        <div class="task-list">
+          <task-item
+            model="task"
+            delete-task="tasks.actions.deleteTask(task)"
+            update-task="tasks.actions.updateTask(task)"
+            ng-repeat="task in tasks.list | filter:tasks.filter track by $index"></task-item>
+        </div>
+      </div>
+    </div>
+  `
+})
+
+export class TasksComponent {
   static $inject = [
     '$ngRedux',
     '$scope',

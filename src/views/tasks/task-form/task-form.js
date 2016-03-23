@@ -1,21 +1,29 @@
-import template from './task-form.html';
+import { Component } from 'src/utils';
 
 
-export function TaskFormDirective() {
-  return {
-    bindToController: {
-      createTask: '&'
-    },
-    controller: 'TaskForm',
-    controllerAs: 'taskForm',
-    restrict: 'E',
-    scope: {},
-    template
-  };
-}
+@Component({
+  bindings: {
+    createTask: '&'
+  },
+  controllerAs: 'taskForm',
+  template: `
+    <form class="task-form" name="newTaskForm" ng-submit="taskForm.submit()" novalidate>
+      <input
+        autocomplete="off"
+        autofocus
+        class="task-form__input"
+        escape="taskForm.cancel()"
+        maxlength="64"
+        name="taskTitle"
+        ng-model="taskForm.title"
+        placeholder="What needs to be done?"
+        required
+        type="text">
+    </form>
+  `
+})
 
-
-export class TaskForm {
+export class TaskFormComponent {
   static $inject = [
     '$scope'
   ];

@@ -1,4 +1,3 @@
-import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngRedux from 'ng-redux';
 import { combineReducers } from 'redux';
@@ -11,9 +10,9 @@ import { taskActions, taskReducer } from './core/tasks';
 import { routerConfig } from './router';
 
 // Views
-import { App, AppDirective } from './views/app';
+import { AppComponent } from './views/app';
 import { escapeDirective, focusDirective } from './views/common/directives';
-import { Tasks, TasksDirective, TaskForm, TaskFormDirective, TaskItem, TaskItemDirective } from './views/tasks';
+import { TaskFormComponent, TaskItemComponent, TasksComponent } from './views/tasks';
 
 // Styles
 import './styles/styles.scss';
@@ -27,17 +26,10 @@ let app = angular.module('app', [
   .factory('apiMiddleware', apiMiddleware)
   .value('taskActions', taskActions)
 
-  .controller('App', App)
-  .directive('app', AppDirective)
-
-  .controller('Tasks', Tasks)
-  .directive('tasks', TasksDirective)
-
-  .controller('TaskForm', TaskForm)
-  .directive('taskForm', TaskFormDirective)
-
-  .controller('TaskItem', TaskItem)
-  .directive('taskItem', TaskItemDirective)
+  .component('app', AppComponent)
+  .component('taskForm', TaskFormComponent)
+  .component('taskItem', TaskItemComponent)
+  .component('tasks', TasksComponent)
 
   .directive('escape', escapeDirective)
   .directive('focus', focusDirective)

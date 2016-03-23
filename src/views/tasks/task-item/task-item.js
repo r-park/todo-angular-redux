@@ -1,23 +1,18 @@
+import { Component } from 'src/utils';
 import template from './task-item.html';
 
 
-export function TaskItemDirective() {
-  return {
-    bindToController: {
-      model: '=',
-      deleteTask: '&',
-      updateTask: '&'
-    },
-    controller: 'TaskItem',
-    controllerAs: 'taskItem',
-    restrict: 'E',
-    scope: {},
-    template
-  };
-}
+@Component({
+  bindings: {
+    model: '<',
+    deleteTask: '&',
+    updateTask: '&'
+  },
+  controllerAs: 'taskItem',
+  template
+})
 
-
-export class TaskItem {
+export class TaskItemComponent {
   constructor() {
     this.editing = false;
     this.statusUpdated = false;

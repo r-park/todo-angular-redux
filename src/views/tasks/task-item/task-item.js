@@ -1,48 +1,49 @@
+import { Component } from 'src/utils';
 import template from './task-item.html';
 
 
-export const TaskItemComponent = {
+@Component({
   bindings: {
     model: '<',
     deleteTask: '&',
     updateTask: '&'
   },
   controllerAs: 'taskItem',
-  restrict: 'E',
-  template,
-  controller: class TaskItem {
-    constructor() {
-      this.editing = false;
-      this.statusUpdated = false;
-    }
+  template
+})
 
-    cancelEdit() {
-      this.editing = false;
-    }
+export class TaskItemComponent {
+  constructor() {
+    this.editing = false;
+    this.statusUpdated = false;
+  }
 
-    edit() {
-      this.title = this.model.title;
-      this.editing = true;
-    }
+  cancelEdit() {
+    this.editing = false;
+  }
 
-    delete() {
-      this.deleteTask({task: this.model});
-    }
+  edit() {
+    this.title = this.model.title;
+    this.editing = true;
+  }
 
-    save() {
-      if (this.editing) {
-        if (this.model.title !== this.title) {
-          this.model.title = this.title;
-          this.updateTask({task: this.model});
-        }
-        this.editing = false;
+  delete() {
+    this.deleteTask({task: this.model});
+  }
+
+  save() {
+    if (this.editing) {
+      if (this.model.title !== this.title) {
+        this.model.title = this.title;
+        this.updateTask({task: this.model});
       }
+      this.editing = false;
     }
+  }
 
-    toggleCompleted() {
-      this.model.completed = !this.model.completed;
-      this.updateTask({task: this.model});
-      this.statusUpdated = this.model.completed;
-    }
+  toggleCompleted() {
+    this.model.completed = !this.model.completed;
+    this.updateTask({task: this.model});
+    this.statusUpdated = this.model.completed;
   }
 }

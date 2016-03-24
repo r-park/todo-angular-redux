@@ -1,4 +1,3 @@
-import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngRedux from 'ng-redux';
 import { combineReducers } from 'redux';
@@ -13,7 +12,7 @@ import { routerConfig } from './router';
 // Views
 import { AppComponent } from './views/app';
 import { escapeDirective, focusDirective } from './views/common/directives';
-import { TasksComponent, TaskFormComponent, TaskItemComponent } from './views/tasks';
+import { TaskFormComponent, TaskItemComponent, TasksComponent } from './views/tasks';
 
 // Styles
 import './styles/styles.scss';
@@ -28,9 +27,9 @@ let app = angular.module('app', [
   .value('taskActions', taskActions)
 
   .component('app', AppComponent)
-  .component('tasks', TasksComponent)
   .component('taskForm', TaskFormComponent)
   .component('taskItem', TaskItemComponent)
+  .component('tasks', TasksComponent)
 
   .directive('escape', escapeDirective)
   .directive('focus', focusDirective)

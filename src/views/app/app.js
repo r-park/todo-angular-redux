@@ -1,14 +1,8 @@
 import template from './app.html';
 
-
-export function AppDirective() {
-  return {
-    controller: 'App',
+export const AppComponent = {
     controllerAs: 'app',
     restrict: 'E',
-    template
-  };
+    template,
+    controller: class App {}
 }
-
-
-export class App {}

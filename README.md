@@ -3,52 +3,36 @@
 
 # Todo app with Angular 1.5 and Redux
 
-- [Angular](https://github.com/angular/angular.js)
-- [Angular UI-Router](https://github.com/angular-ui/ui-router)
-- [NG-Redux](https://github.com/wbuchwalter/ng-redux)
-- [Redux](https://github.com/rackt/redux)
-- [Babel](https://github.com/babel/babel)
-- [Gulp](https://github.com/gulpjs/gulp)
-- [Karma](https://github.com/karma-runner/karma)
-- [Node-SASS](https://github.com/sass/node-sass)
-- [JSON-Server](https://github.com/typicode/json-server)
-- [Webpack](https://github.com/webpack/webpack)
+- [angular](https://github.com/angular/angular.js)
+- [angular ui-router](https://github.com/angular-ui/ui-router)
+- [ng-redux](https://github.com/wbuchwalter/ng-redux)
+- [redux](https://github.com/rackt/redux)
+- [babel](https://github.com/babel/babel)
+- [karma](https://github.com/karma-runner/karma)
+- [json-server](https://github.com/typicode/json-server)
+- [webpack](https://github.com/webpack/webpack)
 
 
-## Installing dependencies
-```bash
+Quick Start
+---------------
+
+```shell
+$ git clone https://github.com/r-park/todo-angular-redux.git
+$ cd todo-angular-redux
 $ npm install
+$ npm start
 ```
 
 
-#### Gulp v4 (optional)
-```bash
-$ npm install -g gulpjs/gulp-cli#4.0
-```
-The gulp tasks for this project require gulp v4-alpha. If you don't wish to globally install the v4 gulp-cli, you can run the gulp tasks using the locally installed gulp under `./node_modules/.bin` — for example:
-```bash
-$ ./node_modules/.bin/gulp run
-```
+Usage
+-----
 
-
-## Developing
-```bash
-$ gulp
-```
-Executing the default `gulp` command will:
-- Build the project
-- Start the server at <a href="http://localhost:3000" target="_blank">localhost:3000</a>
-- Watch for changes to the source files and process changes
-- Live-reload the browser
-
-
-## Testing
-```bash
-$ gulp test.watch
-```
-Executing `gulp test.watch` will:
-- Run the test suites
-- Watch for changes to the source files
-- Re-run the tests whenever the sources are modified
-
-For a single test run without auto-watch, execute `gulp test` instead.
+|Script|Description|
+|---|---|
+|`npm start`|Start webpack development server @ `localhost:3000` and api server @ `localhost:3001`|
+|`npm run build`|Lint, test, and build the application to `./target`|
+|`npm run lint`|Lint `.js` files|
+|`npm run server:api`|Start api server @ `localhost:3001`|
+|`npm run server:dev`|Start webpack development server @ `localhost:3000`|
+|`npm test`|Run unit tests with Karma and Jasmine|
+|`npm run test:watch`|Run unit tests with Karma and Jasmine; watch for changes to re-run tests|

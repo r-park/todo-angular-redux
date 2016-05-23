@@ -46,7 +46,7 @@ config.plugins = [
 ];
 
 config.postcss = [
-  autoprefixer({ browsers: ['last 3 versions', 'Firefox ESR'] })
+  autoprefixer({ browsers: ['last 3 versions'] })
 ];
 
 config.sassLoader = {
@@ -102,7 +102,7 @@ if (ENV_DEVELOPMENT) {
   config.entry.main.unshift(`webpack-dev-server/client?http://${HOST}:${PORT}`);
 
   config.module.loaders.push(
-    {test: /\.scss$/, loader: 'style!css!postcss-loader!sass'}
+    {test: /\.scss$/, loader: 'style!css!postcss!sass'}
   );
 
   config.devServer = {
@@ -131,7 +131,7 @@ if (ENV_DEVELOPMENT) {
 //-------------------------------------
 if (ENV_PRODUCTION) {
   config.module.loaders.push(
-    {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!postcss-loader!sass')}
+    {test: /\.scss$/, loader: ExtractTextPlugin.extract('css?-autoprefixer!postcss!sass')}
   );
 
   config.plugins.push(
@@ -157,6 +157,6 @@ if (ENV_TEST) {
   config.devtool = 'inline-source-map';
 
   config.module.loaders.push(
-    {test: /\.scss$/, loader: 'style!css!postcss-loader!sass'}
+    {test: /\.scss$/, loader: 'style!css!postcss!sass'}
   );
 }

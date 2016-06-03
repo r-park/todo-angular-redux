@@ -1,6 +1,7 @@
 import uiRouter from 'angular-ui-router';
 import ngRedux from 'ng-redux';
 import { combineReducers } from 'redux';
+import createLogger from 'redux-logger';
 
 // Core
 import { apiMiddleware } from './core/api';
@@ -35,9 +36,14 @@ let app = angular.module('app', [
   .directive('focus', focusDirective)
 
   .config(['$ngReduxProvider', $ngReduxProvider => {
+    const logger = createLogger({
+      level: 'info',
+      collapsed: true
+    });
+
     $ngReduxProvider.createStoreWith(combineReducers({
       tasks: taskReducer
-    }), ['apiMiddleware']);
+    }), ['apiMiddleware', logger]);
   }])
 
   .config(routerConfig);

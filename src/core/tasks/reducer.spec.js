@@ -43,6 +43,7 @@ describe('Task reducer', () => {
       });
 
       expect(nextState).toEqual({
+        isLoaded: false,
         list: [ task1, task2 ]
       });
     });
@@ -63,6 +64,7 @@ describe('Task reducer', () => {
       });
 
       expect(nextState).toEqual({
+        isLoaded: false,
         list: [ task1 ]
       });
     });
@@ -79,6 +81,7 @@ describe('Task reducer', () => {
       });
 
       expect(nextState).toEqual({
+        isLoaded: true,
         list: [ task1, task2 ]
       });
     });
@@ -92,6 +95,7 @@ describe('Task reducer', () => {
       });
 
       expect(nextState).toEqual({
+        isLoaded: true,
         list: []
       });
     });
@@ -112,6 +116,7 @@ describe('Task reducer', () => {
       });
 
       expect(nextState).toEqual({
+        isLoaded: false,
         list: [ task1, changedTask2 ]
       });
     });

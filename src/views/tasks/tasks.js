@@ -42,6 +42,7 @@ export class TasksComponent {
     const disconnect = $ngRedux.connect(state => ({
       tasks: state.tasks
     }), taskActions)((state, actions) => {
+      if (!state.tasks.isLoaded) actions.fetchTasks();
       this.actions = actions;
       this.list = state.tasks.list;
     });
@@ -50,7 +51,6 @@ export class TasksComponent {
 
     this.filterTypes = {active: 'active', completed: 'completed'};
     this.filter = $stateParams.filter;
-    this.actions.fetchTasks();
   }
 
   get filter() {

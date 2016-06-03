@@ -1,5 +1,3 @@
-import { createReducer } from 'src/utils';
-
 import {
   CREATE_TASK_SUCCESS,
   DELETE_TASK_SUCCESS,
@@ -9,38 +7,39 @@ import {
 
 
 export const INITIAL_STATE = {
+  isLoaded: false,
   list: []
 };
 
 
-export const taskReducer = createReducer(INITIAL_STATE, {
-  [CREATE_TASK_SUCCESS](state, action) {
-    return {
-      list: [ ...state.list, action.payload ]
-    };
-  },
+export function taskReducer(state = INITIAL_STATE, {meta, payload, type}) {
+  switch (type) {
+    case CREATE_TASK_SUCCESS:
+      return Object.assign({}, state, {
+        list: [ ...state.list, payload ]
+      });
 
-  [DELETE_TASK_SUCCESS](state, action) {
-    const { id } = action.meta;
-    return {
-      list: state.list.filter(task => {
-        return task.id !== id;
-      })
-    };
-  },
+    case DELETE_TASK_SUCCESS:
+      return Object.assign({}, state, {
+        list: state.list.filter(task => {
+          return task.id !== meta.id;
+        })
+      });
 
-  [FETCH_TASKS_SUCCESS](state, action) {
-    return {
-      list: action.payload || []
-    };
-  },
+    case FETCH_TASKS_SUCCESS:
+      return {
+        isLoaded: true,
+        list: payload || []
+      };
 
-  [UPDATE_TASK_SUCCESS](state, action) {
-    const { id } = action.payload;
-    return {
-      list: state.list.map(task => {
-        return task.id === id ? action.payload : task;
-      })
-    };
+    case UPDATE_TASK_SUCCESS:
+      return Object.assign({}, state, {
+        list: state.list.map(task => {
+          return task.id === payload.id ? payload : task;
+        })
+      });
+
+    default:
+      return state;
   }
-});
+}

@@ -1,6 +1,5 @@
 import uiRouter from 'angular-ui-router';
 import ngRedux from 'ng-redux';
-import { combineReducers } from 'redux';
 import createLogger from 'redux-logger';
 
 // Core
@@ -41,9 +40,9 @@ let app = angular.module('app', [
       collapsed: true
     });
 
-    $ngReduxProvider.createStoreWith(combineReducers({
+    $ngReduxProvider.createStoreWith({
       tasks: taskReducer
-    }), ['apiMiddleware', logger]);
+    }, ['apiMiddleware', logger]);
   }])
 
   .config(routerConfig);

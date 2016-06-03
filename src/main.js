@@ -34,18 +34,22 @@ let app = angular.module('app', [
   .directive('escape', escapeDirective)
   .directive('focus', focusDirective)
 
+  .config(routerConfig)
+
   .config(['$ngReduxProvider', $ngReduxProvider => {
-    const logger = createLogger({
-      level: 'info',
-      collapsed: true
-    });
+    const middleware = ['apiMiddleware'];
+
+    if (process.env.NODE_ENV === 'development') {
+      middleware.push(createLogger({
+        level: 'info',
+        collapsed: true
+      }));
+    }
 
     $ngReduxProvider.createStoreWith({
       tasks: taskReducer
-    }, ['apiMiddleware', logger]);
-  }])
-
-  .config(routerConfig);
+    }, middleware);
+  }]);
 
 
 angular.element(document).ready(() => {

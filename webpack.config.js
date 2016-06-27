@@ -14,8 +14,8 @@ const ENV_DEVELOPMENT = NODE_ENV === 'development';
 const ENV_PRODUCTION = NODE_ENV === 'production';
 const ENV_TEST = NODE_ENV === 'test';
 
-const HOST = 'localhost';
-const PORT = 3000;
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 3000;
 
 
 //=========================================================
@@ -40,8 +40,7 @@ config.module = {
 
 config.plugins = [
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
-    'process.env.SOUNDCLOUD_CLIENT_ID': JSON.stringify(process.env.SOUNDCLOUD_CLIENT_ID)
+    'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
   })
 ];
 
@@ -60,19 +59,9 @@ config.sassLoader = {
 //  DEVELOPMENT or PRODUCTION
 //-------------------------------------
 if (ENV_DEVELOPMENT || ENV_PRODUCTION) {
-  config.devtool = 'source-map';
-
   config.entry = {
-    main: [
-      './src/main'
-    ],
-    vendor: [
-      'babel-polyfill',
-      'angular',
-      'angular-ui-router',
-      'ng-redux',
-      'redux'
-    ]
+    main: ['./src/main'],
+    vendor: './src/vendor'
   };
 
   config.output = {
@@ -83,7 +72,8 @@ if (ENV_DEVELOPMENT || ENV_PRODUCTION) {
 
   config.plugins.push(
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor', filename: 'vendor.js', minChunks: Infinity
+      name: 'vendor',
+      minChunks: Infinity
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -99,6 +89,8 @@ if (ENV_DEVELOPMENT || ENV_PRODUCTION) {
 //  DEVELOPMENT
 //-------------------------------------
 if (ENV_DEVELOPMENT) {
+  config.devtool = 'cheap-module-source-map';
+
   config.entry.main.unshift(`webpack-dev-server/client?http://${HOST}:${PORT}`);
 
   config.module.loaders.push(
@@ -130,6 +122,8 @@ if (ENV_DEVELOPMENT) {
 //  PRODUCTION
 //-------------------------------------
 if (ENV_PRODUCTION) {
+  config.devtool = 'source-map';
+
   config.module.loaders.push(
     {test: /\.scss$/, loader: ExtractTextPlugin.extract('css?-autoprefixer!postcss!sass')}
   );
